@@ -22,7 +22,7 @@ library
 test-suite grade
     type:             exitcode-stdio-1.0
     -- other-modules:    Lib
-    build-depends:    base ^>=4.14
+    build-depends:    base ^>=4.14,
                       tasty ^>=1.4.2,
 		      tasty-hunit ^>=0.10.0.3,
 		      tasty-hspec ^>=1.2,
