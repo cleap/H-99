@@ -6,16 +6,8 @@ which are themselves translations of [Ninety-Nine Prolog Problems](https://web.a
 
 ## Why should I take your word for it?
 
-We can test the solutions using [HUnit](https://github.com/hspec/HUnit):
+To test my solutions, run
 
 ```bash
-$ ghci
-GHCi, version 8.6.5: http://www.haskell.org/ghc/  :? for help
-Prelude> :load grade
-[1 of 2] Compiling Unit01           ( Unit01.hs, interpreted )
-[2 of 2] Compiling Main             ( grade.hs, interpreted )
-Ok, two modules loaded.
-Prelude> runTestTT unit01
-Cases: 10  Tried: 10  Errors: 0  Failures: 0
-Counts {cases = 10, tried = 10, errors = 0, failures = 0}
+cabal test all
 ```

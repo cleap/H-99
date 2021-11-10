@@ -1,4 +1,4 @@
-module Unit01 where
+module Lib where
 
 -- Problem 1 --
 myLast :: [a] -> a
