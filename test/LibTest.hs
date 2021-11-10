@@ -39,5 +39,12 @@ unitTests = testGroup "Unit tests"
         testCase "flatten (List [Elem 1, List [Elem 2, List [Elem 3, Elem 4], Elem 5]])" $ flatten (List [Elem 1, List [Elem 2, List [Elem 3, Elem 4], Elem 5]]) @?= [1,2,3,4,5],
         testCase "compress \"aaaabccaadeeee\"" $ compress "aaaabccaadeeee" @?= "abcade",
         testCase "pack \"aaaabccaadeeee\"" $ pack "aaaabccaadeeee" @?= ["aaaa","b","cc","aa","d","eeee"],
-        testCase "encode \"aaaabccaadeeee\"" $ encode "aaaabccaadeeee" @?= [(4,'a'),(1,'b'),(2,'c'),(2,'a'),(1,'d'),(4,'e')]
+        testCase "encode \"aaaabccaadeeee\"" $ encode "aaaabccaadeeee" @?= [(4,'a'),(1,'b'),(2,'c'),(2,'a'),(1,'d'),(4,'e')],
+        testCase "encodeModified \"aaaabccaadeeee\"" $ encodeModified "aaaabccaadeeee" @?= [Multiple 4 'a', Single 'b', Multiple 2 'c', Multiple 2 'a', Single 'd', Multiple 4 'e'],
+        testCase "decodeModified [Multiple 4 'a',Single 'b',Multiple 2 'c',Multiple 2 'a',Single 'd',Multiple 4 'e']" $ decodeModified [Multiple 4 'a',Single 'b',Multiple 2 'c',Multiple 2 'a',Single 'd',Multiple 4 'e'] @?= "aaaabccaadeeee",
+        testCase "encodeDirect \"aaaabccaadeeee\"" $ encodeDirect "aaaabccaadeeee" @?=  [Multiple 4 'a', Single 'b', Multiple 2 'c', Multiple 2 'a', Single 'd', Multiple 4 'e'],
+        testCase "dupli [1,2,3]" $ dupli [1,2,3] @?= [1,1,2,2,3,3],
+        testCase "repli \"abc\" 3" $ repli "abc" 3 @?= "aaabbbccc",
+        testCase "dropEvery \"abcdefghik\" 3" $ dropEvery "abcdefghik" 3 @?= "abdeghk",
+        testCase "split \"abcdefghik\" 3" $ split "abcdefghik" 3 @?= ("abc","defghik")
     ]
