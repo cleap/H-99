@@ -16,13 +16,13 @@ extra-source-files:
 library
     exposed-modules:  Lib
     -- other-moduels:
-    build-depends:    base ^>=4.14.3.0
+    build-depends:    base ^>=4.14
     hs-source-dirs:   src
     default-language: Haskell2010
 test-suite grade
     type:             exitcode-stdio-1.0
     -- other-modules:    Lib
-    build-depends:    base ^>=4.14.3.0,
+    build-depends:    base ^>=4.14
                       tasty ^>=1.4.2,
 		      tasty-hunit ^>=0.10.0.3,
 		      tasty-hspec ^>=1.2,
