@@ -125,3 +125,35 @@ split xs n = helper [] n xs where
     helper _ _ [] = error "Index out of bounds"
     helper xs 0 ys = (xs,ys)
     helper xs n (y:ys) = helper (xs ++ [y]) (n - 1) ys
+
+-- Problem 18 --
+slice :: [a] -> Int -> Int -> [a]
+slice [] _ _ = []
+slice xs i j = trimEnd [] (trimFront xs i) (j - i) where
+    trimFront :: [a] -> Int -> [a]
+    trimFront [] _ = error "Index out of bounds"
+    trimFront xs 1 = xs
+    trimFront (x:xs) i = trimFront xs (i - 1)
+    trimEnd :: [a] -> [a] -> Int -> [a]
+    trimEnd _ [] _ = error "Index out of bounds"
+    trimEnd xs (y:ys) 0 = xs ++ [y]
+    trimEnd xs (y:ys) j = trimEnd (xs ++ [y]) ys (j - 1)
+
+-- Problem 19 --
+rotate :: [a] -> Int -> [a]
+rotate [] _ = []
+rotate xs n =
+    let helper :: [a] -> [a] -> Int -> [a]
+        helper _ [] _ = error "Index out of bounds"
+        helper xs ys 0 = ys ++ xs
+        helper xs (y:ys) n = helper (xs ++ [y]) ys (n-1)
+    in  if n <  0 then helper [] xs (length xs + n)
+        else helper [] xs n
+
+-- Problem 20 --
+removeAt :: Int -> [a] -> (a,[a])
+removeAt i xs = helper i [] xs where
+    helper :: Int -> [a] -> [a] -> (a,[a])
+    helper _ _ [] = error "Empty list"
+    helper 1 xs (y:ys) = (y,xs++ys)
+    helper i xs (y:ys) = helper (i - 1) (xs++[y]) ys

@@ -46,5 +46,9 @@ unitTests = testGroup "Unit tests"
         testCase "dupli [1,2,3]" $ dupli [1,2,3] @?= [1,1,2,2,3,3],
         testCase "repli \"abc\" 3" $ repli "abc" 3 @?= "aaabbbccc",
         testCase "dropEvery \"abcdefghik\" 3" $ dropEvery "abcdefghik" 3 @?= "abdeghk",
-        testCase "split \"abcdefghik\" 3" $ split "abcdefghik" 3 @?= ("abc","defghik")
+        testCase "split \"abcdefghik\" 3" $ split "abcdefghik" 3 @?= ("abc","defghik"),
+        testCase "slice \"abcdefghik\" 3 7" $ slice "abcdefghik" 3 7 @?= "cdefg",
+        testCase "rotate \"abcedfgh\" 3" $ rotate "abcdefg" 3 @?= "defgabc",
+        testCase "rotate \"abcdefgh\" (-2)" $ rotate "abcdefgh" (-2) @?= "ghabcdef",
+        testCase "removeAt 2 \"abcd\"" $ removeAt 2 "abcd" @?= ('b',"acd")
     ]

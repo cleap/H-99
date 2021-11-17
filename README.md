@@ -6,7 +6,7 @@ These are my solutions to [Ninety-Nine Haskell Problems](https://wiki.haskell.or
 which are translations of [Ninety-Nine Lisp Problems](https://www.ic.unicamp.br/~meidanis/courses/mc336/2006s2/funcional/L-99_Ninety-Nine_Lisp_Problems.html),
 which are themselves translations of [Ninety-Nine Prolog Problems](https://web.archive.org/web/20170324220754/https://sites.google.com/site/prologsite/prolog-problems).
 
-Solved problems: 17/99
+Solved problems: 20/99
 
 ## Why should I take your word for it?
 
